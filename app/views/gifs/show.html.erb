@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+<%= image_tag @gif.image_url %>
+<%= @gif.user.name %>
+<%= @gif.tag_list %>
+<%= link_to 'Back', gifs_path %>
+<% if user_signed_in? && current_user === @gif.user %>
+	|<%= link_to 'Edit', edit_gif_path(@gif) %>
+<% end %>
