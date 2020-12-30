@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 <%= image_tag @gif.image_url %>
-<%= @gif.user.name %>
-<%= @gif.tag_list %>
+<p>
+	Uploaded by: <%= @gif.user.name %> - 
+	<b>
+		<%= linked_tag_list @gif %>
+	</b>
+</p>
 <%= link_to 'Back', gifs_path %>
 <% if user_signed_in? && current_user === @gif.user %>
-	|<%= link_to 'Edit', edit_gif_path(@gif) %>
+	| <%= link_to 'Edit', edit_gif_path(@gif) %>
 <% end %>

@@ -6,6 +6,7 @@ class GifsController < ApplicationController
   # GET /gifs.json
   def index
     @gifs = Gif.all
+    @page_title = Gif
   end
 
   # GET /gifs/1
