@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
-<div class="grid grid-cols-1 gap-6 md:grid-cols-3 m-8">
-	<% @gifs.each do |gif| %>
-		<%= link_to image_tag(gif.image_url), gif %></td>
-<% end %>
+<div class="container w-full mx-auto mt-4">
+	<div class="grid grid-cols-1 ml-8 md:grid-cols-2 lg:flex lg:flex-wrap lg:mx-auto gap-4 m-4">
+		<% @gifs.each do |gif| %>
+			<div class="border-2 border-black mx-auto">
+				<div>
+					<%= link_to image_tag(gif.image_url), gif, class: "gify" %>
+					<div class="font-bold m-2">
+						<span class="bg-gray-200 m-1 p-1">Tags: <%= linked_tag_list gif %>
+						</span>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
 </div>
