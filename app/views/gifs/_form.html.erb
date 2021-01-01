@@ -1,24 +1,28 @@
-<%= form_with(model: gif) do |form| %>
-	<% if gif.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(gif.errors.count, "error") %> prohibited this gif from being saved:</h2>
-			<ul>
-				<% gif.errors.each do |error| %>
-					<li><%= error.full_message %></li>
-				<% end %>
-			</ul>
+<div class="bg-gray-100 mt-8 max-w-md mx-auto border-2 border-black">
+	<%= form_with(model: gif, local: true) do |form| %>
+		<div class="grid grid-cols-1 gap-6 py-6 px-6">
+			<% if gif.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(gif.errors.count, "error") %> prohibited this gif from being saved:</h2>
+					<ul>
+						<% gif.errors.each do |error| %>
+							<li><%= error.full_message %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+			<div class="field">
+				<%= form.label :image %>
+				<%= form.hidden_field :image, value: form.object.cached_image_data %>
+				<%= form.file_field :image, class: "mt-1 block w-full py-1 px-1 rounded border focus:outline-none focus:ring-2 focus:ring-green-300 focus:border-transparent" %>
+			</div>
+			<div class="field">
+				<%= form.label :tag_list %>
+				<%= form.text_field :tag_list, class: "mt-1 block w-full py-1 px-1 rounded border focus:outline-none focus:ring-2 focus:ring-green-300 focus:border-transparent" %>
+			</div>
+			<div class="actions">
+				<%= form.submit "Submit", class: "p-1 text-white cursor-pointer rounded bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50" %>
+			</div>
 		</div>
 	<% end %>
-	<div class="field">
-		<%= form.label :image %>
-		<%= form.hidden_field :image, value: form.object.cached_image_data %>
-		<%= form.file_field :image %>
-	</div>
-	<div class="field">
-		<%= form.label :tag_list %>
-		<%= form.text_field :tag_list %>
-	</div>
-	<div class="actions">
-		<%= form.submit %>
-	</div>
-<% end %>
+</div>

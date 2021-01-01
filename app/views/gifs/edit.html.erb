@@ -1,5 +1,9 @@
-<h1>Editing Gif</h1>
+<% @page_title="Edit" %>
+<h1 class="text-center text-5xl">Edit Gif</h1>
 <%= render 'form', gif: @gif %>
-<%= link_to 'Back', gifs_path %> |
-<%= link_to 'Edit', edit_gif_path(@gif) %> |
-<%= link_to 'Destroy', @gif, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="text-center mt-3">
+	<p>
+		<%= link_to 'Back', gifs_path, class: 'button bg-gray-300 py-1 px-4 rounded hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50' %> |
+		<%= link_to 'Destroy', @gif, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button bg-gray-300 py-1 px-4 rounded hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50' %>
+	</p>
+</div>

@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
-<%= image_tag @gif.image_url %>
-<p>
-	Uploaded by: <%= @gif.user.name %> - 
-	<b>
-		<%= linked_tag_list @gif %>
-	</b>
-</p>
-<%= link_to 'Back', gifs_path %>
-<% if user_signed_in? && current_user === @gif.user %>
-	| <%= link_to 'Edit', edit_gif_path(@gif) %>
-<% end %>
+<div class="bg-gray-100 mt-8 max-w-md mx-auto border-2 border-black">
+	<div class="block py-4 px-4">
+		<%= image_tag @gif.image_url %>
+		<div class="font-bold">Uploaded by: <%= @gif.user.name %></div>
+		<div class="font-bold">Tags: <%= linked_tag_list @gif %></div>
+		<%= link_to 'Back', gifs_path, class: 'button bg-gray-300 py-1 px-4 rounded hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50' %>
+		<% if user_signed_in? && current_user === @gif.user %>
+			| <%= link_to 'Edit', edit_gif_path(@gif), class: 'button bg-gray-300 py-1 px-4 rounded hover:bg-yellow-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50' %>
+		<% end %>
+	</div>
+</div>
