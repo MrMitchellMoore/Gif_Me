@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   # resources
   resources :gifs
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
   
   # regular routes
   get '*tag', to: 'gifs#random', as: :random_gif

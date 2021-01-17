@@ -4,6 +4,8 @@ class Gif < ApplicationRecord
   
   acts_as_taggable
 
+  scope :sorted, -> {order(created_at: :desc)}
+
   def self.random
     order("Random()").first
   end
