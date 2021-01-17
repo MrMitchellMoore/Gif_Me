@@ -5,7 +5,7 @@ class GifsController < ApplicationController
   # GET /gifs
   # GET /gifs.json
   def index
-    @gifs = Gif.sorted
+    @gifs = Gif.includes(:tags, :user).sorted
     @page_title = Gif
   end
 
