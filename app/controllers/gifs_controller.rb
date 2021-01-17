@@ -9,10 +9,22 @@ class GifsController < ApplicationController
     @page_title = Gif
   end
 
+  def random 
+    if @gif = Gif.tagged_with(params[:tag]).random
+      @page_title = params[:tag]
+    else
+      @gif ||= Gif.random
+      @page_title = "Random-Gif"
+    end
+    
+    render :show
+  end
+
   # GET /gifs/1
   # GET /gifs/1.json
   def show
     @gif = Gif.find(params[:id])
+    @page_title = "Show"
   end
 
   # GET /gifs/new
