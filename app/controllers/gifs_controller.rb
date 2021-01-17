@@ -18,7 +18,7 @@ class GifsController < ApplicationController
     end
     
     render :show
-  end
+ end
 
   # GET /gifs/1
   # GET /gifs/1.json

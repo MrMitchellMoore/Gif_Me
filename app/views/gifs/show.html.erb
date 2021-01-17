@@ -6,8 +6,8 @@
 		<div class="font-bold">Uploaded by: <%= @gif.user.name %></div>
 		<div class="font-bold">Tags: <%= linked_tag_list @gif %></div>
 		<div class="flex" data-controller="clipboard">
-			<%= text_field_tag nil, full_gif_url(@gif), data: {target: "clipboard.source" }, class: "mt-1 block w-1/2 rounded-md bg-blue-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 p-1" %>
-			<button data-action="click->clipboard#copy" class="rounded-md bg-gray-300 hover:bg-gray-500 pr-1 pl-1 mt-1 ml-2">Copy</button>
+			<%= text_field_tag nil, full_gif_url(@gif), data: {'clipboard-target': "source" }, class: "mt-1 block w-1/2 rounded-md bg-blue-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 p-1" %>
+			<button data-action="click->clipboard#copy" data-clipboard-target="button" class="rounded-md bg-purple-500 hover:bg-purple-300 pr-2 pl-2 mt-1 ml-2">Copy</button>
 		</div>
 		<div class="mt-2">
 			<%= link_to 'Back', gifs_path, class: 'button bg-gray-300 py-1 px-4 rounded hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50' %>
