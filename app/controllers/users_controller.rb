@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   def show
     @gifs = @user.gifs.includes(:tags, :user).sorted
     @page_title = @gifs.first.user.name
-    render 'gifs/index'
   end
   
 
